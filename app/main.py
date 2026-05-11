@@ -1,10 +1,20 @@
 from fastapi import FastAPI
-from app.router import router
+from app.workflow_engine import WorkflowEngine
 
-app = FastAPI(title="AI Workflow Agent")
+app = FastAPI()
 
-app.include_router(router)
+workflow = WorkflowEngine()
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+@app.get("/")
+def home():
+    return {"message": "Enterprise AI Workflow Agent"}
+
+@app.post("/run-workflow")
+def run_workflow(query: str):
+
+    result = workflow.run(query)
+
+    return {
+        "query": query,
+        "result": result
+    }
