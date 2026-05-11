@@ -50,11 +50,12 @@ Screen AI engineer resumes and rank top candidates.
 4. Generate report
 ```
 
-## Run
+## Run Project
 
 ```bash
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+
+docker-compose up --build
 ```
 
 ## Future Work
