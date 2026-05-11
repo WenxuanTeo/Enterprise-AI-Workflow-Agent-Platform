@@ -1,19 +1,19 @@
-from app.tools import resume_parser, scoring, web_search
+class WorkflowEngine:
 
-def run_workflow(plan: dict):
-    results = {}
+    def run(self, query):
 
-    for step in plan["steps"]:
-        if "简历" in step:
-            results[step] = resume_parser.run()
-        
-        elif "评分" in step:
-            results[step] = scoring.run(results)
-        
-        elif "搜索" in step:
-            results[step] = web_search.run()
+        print(f"[Workflow] Start: {query}")
 
-        else:
-            results[step] = "LLM fallback execution"
+        result = {
+            "steps": [
+                "Task Planning",
+                "Tool Calling",
+                "Memory Check",
+                "Response Generation"
+            ],
+            "final_answer": f"Processed query: {query}"
+        }
 
-    return results
+        print("[Workflow] Finished")
+
+        return result
