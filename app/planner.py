@@ -24,3 +24,5 @@ def plan_task(query: str):
     )
 
     return response["choices"][0]["message"]["content"]
+
+print("[Planner] Planning task...")
