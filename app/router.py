@@ -16,3 +16,5 @@ async def run_agent(query: str):
         "plan": plan,
         "result": result
     }
+
+print("[Router] Selecting tool...")
